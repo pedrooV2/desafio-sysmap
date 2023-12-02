@@ -34,5 +34,10 @@
             IsSuccessful = isSuccessful;
             Message = message;
         }
+
+        public override string ToString()
+        {
+            return $"Curso: {Title}\nDescrição: {Description}\nCarga Horária: {TotalHour}\nInstrutor: {Instructor}";
+        }
     }
 }

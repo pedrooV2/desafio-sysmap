@@ -11,9 +11,15 @@ namespace AluraBot.Service.Handlers
             _htmlDocument = new HtmlDocument();
         }
 
-        public IEnumerable<Course> GetListCourses(string pageContent)
+        public bool SearchedCourseExists(string pageContent)
         {
             _htmlDocument.LoadHtml(pageContent);
+
+            return !_htmlDocument.DocumentNode.InnerText.Contains("Não encontramos resultados");           
+        }
+        public IEnumerable<Course> GetListCourses(string pageContent)
+        {
+            
 
             var coursesList = new List<Course>();
 

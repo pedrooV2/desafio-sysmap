@@ -2,11 +2,11 @@
 
 namespace AluraBot.Domain.Interfaces.Services
 {
-    public interface IAluraService
+    public interface IAluraService : IDisposable
     {
         void AccessAlura();
-        void SearchCourse(string courseName);
+        bool SearchCourse(string courseName);
         IEnumerable<Course> GetListCourses();
-        void GetDetailsOfCourses(Course item);
+        void GetDetailsOfCourses(Course item);        
     }
 }

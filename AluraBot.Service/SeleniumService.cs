@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 
 namespace AluraBot.Service
 {
-    public class SeleniumService : IAluraService, IDisposable
+    public class SeleniumService : IAluraService
     {
         private IWebDriver _webDriver;
         private HtmlHandler _htmlHandler;
@@ -29,12 +29,14 @@ namespace AluraBot.Service
             }
         }
 
-        public void SearchCourse(string courseName)
+        public bool SearchCourse(string courseName)
         {
             try
             {
                 _webDriver.FindElement(By.Id("header-barraBusca-form-campoBusca"))
                 .SendKeys(courseName + Keys.Enter);
+
+                return _htmlHandler.SearchedCourseExists(_webDriver.PageSource);
             }
             catch
             {
