@@ -1,15 +1,17 @@
-﻿using AluraBot.Domain.Models;
-using OpenQA.Selenium;
+﻿using AluraBot.Domain.Interfaces.Services;
+using AluraBot.Domain.Models;
+using AluraBot.Service.Handlers;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 
-namespace AluraBot.Service.Handler
+namespace AluraBot.Service
 {
-    public class SeleniumHandler : IDisposable
+    public class SeleniumService : IAluraService, IDisposable
     {
         private IWebDriver _webDriver;
         private HtmlHandler _htmlHandler;
 
-        public SeleniumHandler()
+        public SeleniumService()
         {
             _webDriver = new ChromeDriver();
             _htmlHandler = new HtmlHandler();

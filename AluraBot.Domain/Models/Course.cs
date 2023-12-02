@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace AluraBot.Domain.Models
+﻿namespace AluraBot.Domain.Models
 {
     public class Course
     {

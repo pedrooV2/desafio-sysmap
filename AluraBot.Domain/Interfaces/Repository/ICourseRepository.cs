@@ -1,6 +1,6 @@
 ﻿using AluraBot.Domain.Models;
 
-namespace AluraBot.Domain.Interfaces
+namespace AluraBot.Domain.Interfaces.Repository
 {
     public interface ICourseRepository
     {

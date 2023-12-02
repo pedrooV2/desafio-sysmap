@@ -1,12 +1,7 @@
 ﻿using AluraBot.Data.Context;
-using AluraBot.Domain.Interfaces;
+using AluraBot.Domain.Interfaces.Repository;
 using AluraBot.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AluraBot.Data.Repository
 {
