@@ -1,14 +1,18 @@
-﻿namespace AluraBot.Domain.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace AluraBot.Domain.Models
 {
-    public class CourseAlura
+    public class Course
     {
-        public CourseAlura(string? title, string? description, string? url)
+        public Course(string? title, string? description, string? url)
         {
+            Id = Guid.NewGuid().ToString();
             Title = title;
             Description = description;
             Url = url;
         }
 
+        public string Id { get; set; }
         public string? Title { get; private set; }
         public string? Description { get; private set; }
         public string? Url { get; private set; }

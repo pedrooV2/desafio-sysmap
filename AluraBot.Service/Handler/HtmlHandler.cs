@@ -17,11 +17,11 @@ namespace AluraBot.Service.Handler
             _htmlDocument = new HtmlDocument();
         }
 
-        public IEnumerable<CourseAlura> GetListCourses(string pageContent)
+        public IEnumerable<Course> GetListCourses(string pageContent)
         {
             _htmlDocument.LoadHtml(pageContent);
 
-            var coursesList = new List<CourseAlura>();
+            var coursesList = new List<Course>();
 
             var courseItems = _htmlDocument.DocumentNode
                 .SelectNodes("/html/body/div[2]/div[2]/section/ul/li");
@@ -43,7 +43,7 @@ namespace AluraBot.Service.Handler
                 var title = courseInfo.First(c => c.Name == "h4").InnerText;
                 var description = courseInfo.First(c => c.Name == "p").InnerText;
 
-                var course = new CourseAlura(title, description, url);
+                var course = new Course(title, description, url);
 
                 coursesList.Add(course);
             }

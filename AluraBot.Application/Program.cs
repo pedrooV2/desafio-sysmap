@@ -1,14 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using AluraBot.Data.Context;
 using AluraBot.Service.Handler;
 
-using (var handler = new SeleniumHandler())
-{   
-    handler.AccessAlura();
-    handler.SearchCourse("rpa");
-    var courses = handler.GetListCourses();
-
-    foreach (var course in courses)
-    {
-        handler.GetDetailsOfCourses(course);
-    }
+using (var dbContext = new AppDbContext())
+{
+    dbContext.Database.EnsureDeleted();
+    dbContext.Database.EnsureCreated();
+    var coursesList = dbContext.Courses.ToList();
 }
+
+

@@ -40,9 +40,9 @@ namespace AluraBot.Service.Handler
             }
         }
 
-        public IEnumerable<CourseAlura> GetListCourses()
+        public IEnumerable<Course> GetListCourses()
         {
-            var coursesList = new List<CourseAlura>();
+            var coursesList = new List<Course>();
 
             try
             {
@@ -71,7 +71,7 @@ namespace AluraBot.Service.Handler
             return coursesList;
         }
 
-        public void GetDetailsOfCourses(CourseAlura item)
+        public void GetDetailsOfCourses(Course item)
         {
             try
             {
