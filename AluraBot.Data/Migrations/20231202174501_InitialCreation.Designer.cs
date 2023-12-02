@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AluraBot.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231202154628_InitialCreation")]
+    [Migration("20231202174501_InitialCreation")]
     partial class InitialCreation
     {
         /// <inheritdoc />

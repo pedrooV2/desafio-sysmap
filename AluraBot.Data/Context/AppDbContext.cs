@@ -7,10 +7,9 @@ namespace AluraBot.Data.Context
     {
         public DbSet<Course> Courses { get; set; }
 
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            optionsBuilder.UseSqlite("DataSource=app.db;Cache=Shared");
+
         }
     }
 }
