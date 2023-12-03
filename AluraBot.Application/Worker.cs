@@ -26,11 +26,9 @@ namespace AluraBot.Application
 
                 if (string.IsNullOrEmpty(courseInput))
                 {
-                    _logger.LogInformation("Digite um valor válido!");
+                    Console.WriteLine("Digite um valor válido!");
                     continue;
                 }
-
-                var coursesList = await _courseRepository.GetAll();
 
                 using (var scope = _serviceProvider.CreateScope())
                 {
@@ -50,11 +48,13 @@ namespace AluraBot.Application
                                     _courseRepository.Insert(course);
 
                                     Console.WriteLine(course.ToString());
-                                    Console.WriteLine("---------------------------------------------------------");
+                                    Console.WriteLine("\n --------------------------------------------------------- \n");
                                 }
+
+                                Console.WriteLine($"Estes foram os resultados encontrados para o tema {courseInput}!");
                             }
                             else
-                                _logger.LogWarning("O curso pesquisado não retornou resultados. Tente outro curso!");
+                                Console.WriteLine("O tema pesquisado não retornou resultados. Tente outro tema.");
                         }
                         catch (Exception ex)
                         {

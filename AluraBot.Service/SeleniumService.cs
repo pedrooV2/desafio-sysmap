@@ -81,19 +81,29 @@ namespace AluraBot.Service
             {
                 _webDriver.Navigate().GoToUrl(item.Url);
 
-                var totalHour = _webDriver.FindElement(By.XPath("/html/body/section[1]/div/div[2]/div[1]/div/div[1]/div/p[1]")).Text;
-                var instructor = _webDriver.FindElement(By.XPath("/html/body/section[2]/div[1]/section/div/div/div/h3")).Text;
+                var xPathListInstructor = new List<string>
+                {
+                    "//*[@class='formacao-instrutor-nome']",
+                    "/html/body/section[2]/div[1]/section/div/div/div/h3",
+                    "//*[@class='cosmos-author-name']",
+                };
 
-                item.SetTotalHour(totalHour);
+                var xPathListTotalHour = new List<string>
+                {
+                    "//*[@class='formacao__info-conclusao']/div[2]/div",
+                    "/html/body/section[1]/div/div[2]/div[1]/div/div[1]/div/p[1]"
+                };
+
+                var instructor = _htmlHandler.GetInfoByXPathList(_webDriver.PageSource, xPathListInstructor);
+                var totalHour = _htmlHandler.GetInfoByXPathList(_webDriver.PageSource, xPathListTotalHour);
+
                 item.SetInstructor(instructor);
-                item.SetStatusMessage(true, "Informações resgatadas com sucesso");
+                item.SetTotalHour(totalHour);
             }
             catch
             {
-                item.SetStatusMessage(false, "Falha ao resgatar Carga Horário / Instrutor");
+                throw new Exception("Falha ao resgatar os detalhes dos cursos");
             }
-
-            _webDriver.Navigate().Back();
         }
 
         public void Dispose()

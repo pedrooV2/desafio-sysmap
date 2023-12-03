@@ -22,24 +22,21 @@ namespace AluraBot.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Instructor")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("IsSuccessful")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Message")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TotalHour")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Url")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -15,13 +15,11 @@ namespace AluraBot.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "TEXT", nullable: false),
-                    Title = table.Column<string>(type: "TEXT", nullable: true),
-                    Description = table.Column<string>(type: "TEXT", nullable: true),
-                    Url = table.Column<string>(type: "TEXT", nullable: true),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    Url = table.Column<string>(type: "TEXT", nullable: false),
                     TotalHour = table.Column<string>(type: "TEXT", nullable: true),
-                    Instructor = table.Column<string>(type: "TEXT", nullable: true),
-                    IsSuccessful = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Message = table.Column<string>(type: "TEXT", nullable: true)
+                    Instructor = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

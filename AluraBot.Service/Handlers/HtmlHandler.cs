@@ -15,11 +15,13 @@ namespace AluraBot.Service.Handlers
         {
             _htmlDocument.LoadHtml(pageContent);
 
-            return !_htmlDocument.DocumentNode.InnerText.Contains("Não encontramos resultados");           
+            var courseExists = _htmlDocument.DocumentNode.SelectSingleNode("//div[@class='search-noResult search-noResult--visible']") == null;
+
+            return courseExists;
         }
         public IEnumerable<Course> GetListCourses(string pageContent)
         {
-            
+            _htmlDocument.LoadHtml(pageContent);
 
             var coursesList = new List<Course>();
 
@@ -50,5 +52,37 @@ namespace AluraBot.Service.Handlers
 
             return coursesList;
         }
+
+        public string GetInfoByXPathList(string pageContent, IEnumerable<string> xpathList)
+        {
+            _htmlDocument.LoadHtml(pageContent);
+
+            foreach (var xpath in xpathList)
+            {
+                var node = _htmlDocument.DocumentNode.SelectSingleNode(xpath);
+
+                if (node != null)
+                    return node.InnerText;
+            }
+
+            return "Não foi possível resgatar a informação";
+        }
+
+        //public string GetCourseTotalHour(string pageContent)
+        //{
+        //    _htmlDocument.LoadHtml(pageContent);
+
+        //    var node = _htmlDocument.DocumentNode.SelectSingleNode("//*[@class='formacao__info-conclusao']/div[2]/div");
+
+        //    if (node != null)
+        //        return node.InnerText;
+
+        //    node = _htmlDocument.DocumentNode.SelectSingleNode("/html/body/section[1]/div/div[2]/div[1]/div/div[1]/div/p[1]");
+
+        //    if (node != null)
+        //        return node.InnerText;
+
+        //    return "Não foi possível resgatar a Carga Horária";
+        //}
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AluraBot.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231202174501_InitialCreation")]
+    [Migration("20231203165835_InitialCreation")]
     partial class InitialCreation
     {
         /// <inheritdoc />
@@ -25,24 +25,21 @@ namespace AluraBot.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Instructor")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("IsSuccessful")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Message")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TotalHour")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Url")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
