@@ -19,7 +19,7 @@ cd .\AluraBot.Data\
 # Execute o seguinte comando para criar o banco SQLite
 dotnet ef --startup-project ..\AluraBot.Application\AluraBot.Application.csproj --project .\AluraBot.Data.csproj database update
 
-# Retornar para o diretório da solução, e acessar o diretório do projeto Worker Service
+# Retorne para o diretório da solução, e acesse o diretório do projeto AluraBot.Application
 cd ..
 cd .\AluraBot.Application\
 
