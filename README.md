@@ -8,7 +8,7 @@ Criar uma automação para pesquisar temas na plataforma Alura. A automação te
 - Ao utilizar o Visual Studio 2022 para DEBUG, certifique-se de estar utilizando a última versão disponível.
 
 ### :sparkles: Como Executar?
-Execute os seguintes comandos para executar o projeto
+Execute os seguintes comandos para executar o projeto.
 ```bash
 # Clone esse repositório
 git clone https://github.com/pedrooV2/desafio-sysmap.git
@@ -28,7 +28,7 @@ dotnet build
 dotnet run
 ```
 
-Obs. Caso o comando para criar o banco falhe, pode ser necessário executar algumas ações
+Obs. Em caso de falhas ao criar o banco, pode ser necessário executar as ações a seguir.
 ```bash
 # Caso não tiver a CLI do Entity Framework instalada na máquina, execute o comando abaixo
 dotnet tool install --global dotnet-ef
