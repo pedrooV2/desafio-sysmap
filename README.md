@@ -1,13 +1,13 @@
 # Sysmap _Challenge_
-### Objetivo 
+### :dart: Objetivo 
 Criar uma automação para pesquisar temas na plataforma Alura. A automação tem como requisito a implementação de DDD, Injeção de Dependência, Selenium e boas práticas de código.
 
 ## Guia do Dev.
-### Requerimentos
+### :milky_way: Requerimentos
 - .NET 8 Runtime. [Clique aqui para baixar](https://dotnet.microsoft.com/pt-br/download/dotnet/8.0)
 - Ao utilizar o Visual Studio 2022 para DEBUG, certifique-se de estar utilizando a última versão disponível.
 
-### Como Executar?
+### :sparkles: Como Executar?
 ```bash
 # Clone esse repositório
 git clone https://github.com/pedrooV2/desafio-sysmap.git
@@ -25,13 +25,13 @@ dotnet ef --startup-project ..\AluraBot.Application\AluraBot.Application.csproj 
 dotnet build
 dotnet run
 ```
-### Ferramentas Utilizadas
+### :blue_book: Ferramentas Utilizadas
 - Selenium 
 - Entity Framework
 - SQLite
 - Html Agility Pack
 
-### Desenvolvido por
+### :v: Desenvolvido por
 <table>
   <tr>
     <td align="center">
