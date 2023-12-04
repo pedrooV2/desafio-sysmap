@@ -8,6 +8,7 @@ Criar uma automação para pesquisar temas na plataforma Alura. A automação te
 - Ao utilizar o Visual Studio 2022 para DEBUG, certifique-se de estar utilizando a última versão disponível.
 
 ### :sparkles: Como Executar?
+Execute os seguintes comandos para executar o projeto
 ```bash
 # Clone esse repositório
 git clone https://github.com/pedrooV2/desafio-sysmap.git
@@ -18,13 +19,24 @@ cd .\AluraBot.Data\
 # Execute o seguinte comando para criar o banco SQLite
 dotnet ef --startup-project ..\AluraBot.Application\AluraBot.Application.csproj --project .\AluraBot.Data.csproj database update
 
-# Obs.: Caso as migrações não estejam criadas no projeto, execute o seguinte comando, e depois repita o comando #1
-dotnet ef --startup-project ..\AluraBot.Application\AluraBot.Application.csproj --project .\AluraBot.Data.csproj migrations add InitialCreation
+# Retornar para o diretório da solução, e acessar o diretório do projeto Worker Service
+cd ..
+cd .\AluraBot.Application\
 
 # Execute o projeto
 dotnet build
 dotnet run
 ```
+
+Obs. Caso o comando para criar o banco falhe, pode ser necessário executar algumas ações
+```bash
+# Caso não tiver a CLI do Entity Framework instalada na máquina, execute o comando abaixo
+dotnet tool install --global dotnet-ef
+
+# Caso as migrações não estejam criadas no projeto, execute o seguinte comando, e depois repita o comando para criar o banco SQLite
+dotnet ef --startup-project ..\AluraBot.Application\AluraBot.Application.csproj --project .\AluraBot.Data.csproj migrations add InitialCreation
+```
+
 ### :blue_book: Ferramentas Utilizadas
 - Selenium 
 - Entity Framework
